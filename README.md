@@ -3,8 +3,8 @@
 一套脚本，在 **Linux / macOS / Windows** 上装齐基础开发工具链并部署统一配置。
 配套 [proxy.sh](proxy.sh) 提供跨环境代理自动探测与切换（WSL2 全网络模式 / WSL1 / 原生 Linux / macOS）。
 
-> ⚠️ **本仓库不含任何密钥**（GitHub token、API key 均不收录）。认证在装完后交互完成：
-> `gh auth login` + `opencode auth login`。凭证迁移请使用私有仓库（如 wsl-migration）。
+> ⚠️ **本仓库不含任何密钥**（GitHub token、API key 均不收录），可放心公开。装完后按
+> [密钥与认证配置](#密钥与认证配置) 一节交互完成，或从旧机器私有迁移。
 
 ---
 
@@ -41,6 +41,57 @@ Set-ExecutionPolicy -Scope Process Bypass
 ```
 
 依赖 winget（Windows 10 1809+ / Windows 11 自带）。安装工具：Git / gh / Node 22 / ripgrep / jq / uv。
+
+## 密钥与认证配置
+
+装完基础环境后，认证三步（脚本已把配置文件部署好，只差密钥）：
+
+### 1. GitHub CLI（gh）
+
+```bash
+gh auth login
+#   ? What account do you want to log into?  → GitHub.com
+#   ? What is your preferred protocol?       → HTTPS
+#   ? Authenticate Git with your GitHub credentials? → Yes
+#   ? How to authenticate?                   → Login with a web browser
+#   浏览器打开 https://github.com/login/device 输入一次性代码即可
+```
+
+验证：
+
+```bash
+gh auth status        # 预期: Logged in to github.com account <你的账号>
+```
+
+git 的 push/pull 无需再配——`gitconfig` 已把 github.com 的凭证助手指向 `gh auth git-credential`。
+
+> 令牌方式（无浏览器时）：GitHub → Settings → Developer settings → Personal access tokens
+> 生成 token（勾选 `repo`、`workflow`、`read:org`、`gist`），然后 `gh auth login --with-token` 粘贴。
+
+### 2. OpenCode（AI provider 密钥）
+
+```bash
+opencode auth login
+#   选择 provider（如 opencode-go / deepseek / 智谱）→ 粘贴 API Key
+```
+
+密钥落盘：`~/.local/share/opencode/auth.json`（权限 600），不会进任何 git 仓库。
+
+### 3. 从旧机器迁移（可选，跳过上两步）
+
+新机器直接私有渠道（scp/U盘/私有仓库）拷贝三个文件，即等价于上面全部认证：
+
+```
+~/.config/gh/hosts.json + hosts.yml     # gh token（gh auth status 立即可用）
+~/.local/share/opencode/auth.json       # AI 密钥
+~/.git-credentials                      # git store 凭证（非 github.com 的 https 站点用）
+```
+
+```bash
+chmod 600 ~/.config/gh/hosts.* ~/.local/share/opencode/auth.json ~/.git-credentials
+```
+
+> ⚠️ 密钥文件只放私有仓库或加密传输，不要提交到任何公开仓库。
 
 ## 代理（proxy.sh）
 
@@ -97,8 +148,8 @@ dev-env-setup/
 
 ## FAQ
 
-**Q: 密钥怎么迁？**
-本包不携带任何凭证。装完后：`gh auth login`（GitHub）、`opencode auth login`（AI 密钥）。已有机器间迁移凭证用私有仓库。
+**Q: 密钥怎么配置/迁移？**
+见 [密钥与认证配置](#密钥与认证配置)：推荐 `gh auth login` + `opencode auth login` 交互完成；或从旧机器私有拷贝 `hosts.*` / `auth.json` / `.git-credentials` 三个文件。
 
 **Q: 用户名/邮箱是我自己的怎么办？**
 改 `config/gitconfig` 的 `[user]` 段，或装完后 `git config --global user.name "你"`。
