@@ -1,0 +1,13 @@
+[user]
+	name = Lcxzero
+	email = Lcxzero@outlook.com
+[init]
+	defaultBranch = main
+[credential]
+	helper = store
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential

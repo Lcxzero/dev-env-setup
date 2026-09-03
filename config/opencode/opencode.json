@@ -1,0 +1,361 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "lsp": true,
+  "permission": "allow",
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "chrome-devtools-mcp@latest"
+      ],
+      "enabled": true
+    },
+    "fetch": {
+      "type": "local",
+      "command": [
+        "/home/lcxzero/.local/bin/uvx",
+        "mcp-server-fetch"
+      ],
+      "enabled": false
+    },
+    "edgeone-pages-mcp-server": {
+      "type": "local",
+      "command": [
+        "npx",
+        "edgeone-pages-mcp-fullstack@latest",
+        "--region",
+        "china"
+      ],
+      "timeout": 600000,
+      "enabled": true
+    },
+    "bing-search": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "bing-cn-mcp"
+      ],
+      "enabled": false
+    },
+    "pdf-reader-mcp": {
+      "type": "local",
+      "command": [
+        "node",
+        "/home/lcxzero/repos/pdf-reader-mcp/dist/index.js"
+      ],
+      "enabled": false
+    }
+  },
+  "provider": {
+    "opencode-go": {
+      "models": {
+        "glm-5": {
+          "name": "GLM 5"
+        },
+        "glm-5.3-flash": {
+          "name": "GLM 5.3 Flash"
+        },
+        "glm-5.3": {
+          "name": "GLM 5.3"
+        },
+        "glm-5.2": {
+          "name": "GLM 5.2"
+        },
+        "glm-5.1": {
+          "name": "GLM 5.1"
+        },
+        "deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro"
+        },
+        "deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash"
+        },
+        "deepseek-v4-flash-vision-exp": {
+          "name": "DeepSeek V4 Flash Vision Exp"
+        },
+        "kimi-k3": {
+          "name": "Kimi K3"
+        },
+        "kimi-k2.7-code": {
+          "name": "Kimi K2.7 Code"
+        },
+        "kimi-k2.6": {
+          "name": "Kimi K2.6"
+        },
+        "kimi-k2.5": {
+          "name": "Kimi K2.5"
+        },
+        "qwen3.8-max": {
+          "name": "Qwen3.8 Max"
+        },
+        "qwen3.8-flash": {
+          "name": "Qwen3.8 Flash"
+        },
+        "qwen3.7-max": {
+          "name": "Qwen3.7 Max"
+        },
+        "qwen3.7-plus": {
+          "name": "Qwen3.7 Plus"
+        },
+        "qwen3.6-plus": {
+          "name": "Qwen3.6 Plus"
+        },
+        "qwen3.5-plus": {
+          "name": "Qwen3.5 Plus"
+        },
+        "minimax-m3": {
+          "name": "MiniMax M3"
+        },
+        "minimax-m2.7": {
+          "name": "MiniMax M2.7"
+        },
+        "minimax-m2.5": {
+          "name": "MiniMax M2.5"
+        },
+        "mimo-v2.5": {
+          "name": "MiMo V2.5"
+        },
+        "mimo-v2.5-pro": {
+          "name": "MiMo V2.5 Pro"
+        },
+        "mimo-v2-pro": {
+          "name": "MiMo V2 Pro"
+        },
+        "mimo-v2-omni": {
+          "name": "MiMo V2 Omni"
+        },
+        "longcat-2.0": {
+          "name": "LongCat 2.0"
+        },
+        "gpt-5.6-luna": {
+          "name": "GPT 5.6 Luna"
+        },
+        "grok-4.6": {
+          "name": "Grok 4.6"
+        },
+        "grok-4.5": {
+          "name": "Grok 4.5"
+        },
+        "hy3": {
+          "name": "Hy3"
+        },
+        "hy3-preview": {
+          "name": "Hy3 Preview"
+        },
+        "hy4-preview": {
+          "name": "Hy4 Preview"
+        },
+        "muse-spark-1.2-contributor": {
+          "name": "Muse Spark 1.2 Contributor"
+        }
+      }
+    },
+    "deepseek": {
+      "models": {
+        "deepseek-v4-flash": {
+          "name": "DeepSeek V4 Flash"
+        },
+        "deepseek-v4-flash-vision-exp": {
+          "name": "DeepSeek V4 Flash Vision Exp"
+        },
+        "deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro"
+        }
+      }
+    },
+    "modelscope": {
+      "models": {
+        "deepseek-ai/DeepSeek-V4-Flash-0731": {
+          "name": "DeepSeek V4 Flash 0731"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek V4 Pro"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro-0813": {
+          "name": "DeepSeek V4 Pro 0813"
+        },
+        "early-access/EA-29B-A4B": {
+          "name": "EA 29B A4B (Early Access)"
+        },
+        "MedAIBase/AntAngelMed": {
+          "name": "AntAngelMed"
+        },
+        "meituan-longcat/LongCat-Flash-Lite": {
+          "name": "LongCat Flash Lite"
+        },
+        "MiniMax/MiniMax-M1-80k": {
+          "name": "MiniMax M1 80k"
+        },
+        "MiniMax/MiniMax-M3": {
+          "name": "MiniMax M3"
+        },
+        "mistralai/Mistral-Large-Instruct-2407": {
+          "name": "Mistral Large Instruct 2407"
+        },
+        "opencompass/CompassJudger-1-32B-Instruct": {
+          "name": "CompassJudger 1 32B"
+        },
+        "OpenGVLab/InternVL3_5-241B-A28B": {
+          "name": "InternVL3.5 241B"
+        },
+        "PaddlePaddle/ERNIE-4.5-0.3B-PT": {
+          "name": "ERNIE 4.5 0.3B"
+        },
+        "PaddlePaddle/ERNIE-4.5-21B-A3B-PT": {
+          "name": "ERNIE 4.5 21B A3B"
+        },
+        "PaddlePaddle/ERNIE-4.5-300B-A47B-PT": {
+          "name": "ERNIE 4.5 300B A47B"
+        },
+        "PaddlePaddle/ERNIE-4.5-VL-28B-A3B-PT": {
+          "name": "ERNIE 4.5 VL 28B"
+        },
+        "Qwen/Qwen3-14B": {
+          "name": "Qwen3 14B"
+        },
+        "Qwen/Qwen3-235B-A22B": {
+          "name": "Qwen3 235B A22B"
+        },
+        "Qwen/Qwen3-235B-A22B-Instruct-2507": {
+          "name": "Qwen3 235B A22B Instruct 2507"
+        },
+        "Qwen/Qwen3-235B-A22B-Thinking-2507": {
+          "name": "Qwen3 235B A22B Thinking 2507"
+        },
+        "Qwen/Qwen3-30B-A3B": {
+          "name": "Qwen3 30B A3B"
+        },
+        "Qwen/Qwen3-30B-A3B-Thinking-2507": {
+          "name": "Qwen3 30B A3B Thinking 2507"
+        },
+        "Qwen/Qwen3-4B": {
+          "name": "Qwen3 4B"
+        },
+        "Qwen/Qwen3-8B": {
+          "name": "Qwen3 8B"
+        },
+        "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
+          "name": "Qwen3 Coder 30B"
+        },
+        "Qwen/Qwen3-Next-80B-A3B-Instruct": {
+          "name": "Qwen3 Next 80B A3B"
+        },
+        "Qwen/Qwen3-Next-80B-A3B-Thinking": {
+          "name": "Qwen3 Next 80B A3B Thinking"
+        },
+        "Qwen/Qwen3-VL-235B-A22B-Instruct": {
+          "name": "Qwen3 VL 235B A22B"
+        },
+        "Qwen/Qwen3-VL-8B-Instruct": {
+          "name": "Qwen3 VL 8B"
+        },
+        "Qwen/Qwen3-VL-8B-Thinking": {
+          "name": "Qwen3 VL 8B Thinking"
+        },
+        "Qwen/Qwen3.5-122B-A10B": {
+          "name": "Qwen3.5 122B A10B"
+        },
+        "Qwen/Qwen3.5-27B": {
+          "name": "Qwen3.5 27B"
+        },
+        "Qwen/Qwen3.5-35B-A3B": {
+          "name": "Qwen3.5 35B A3B"
+        },
+        "Qwen/Qwen3.5-397B-A17B": {
+          "name": "Qwen3.5 397B A17B"
+        },
+        "Qwen/Qwen3.8-27B": {
+          "name": "Qwen3.8 27B"
+        },
+        "Qwen/Qwen3.8-Flash-Next": {
+          "name": "Qwen3.8 Flash Next"
+        },
+        "Shanghai_AI_Laboratory/Intern-S1": {
+          "name": "Intern S1"
+        },
+        "Shanghai_AI_Laboratory/Intern-S1-mini": {
+          "name": "Intern S1 Mini"
+        },
+        "Shanghai_AI_Laboratory/Intern-S2-Preview": {
+          "name": "Intern S2 Preview"
+        },
+        "stepfun-ai/Step-3.5-Flash": {
+          "name": "Step 3.5 Flash"
+        },
+        "stepfun-ai/Step-3.7-Flash": {
+          "name": "Step 3.7 Flash"
+        },
+        "Tencent-Hunyuan/Hy3": {
+          "name": "Hunyuan Hy3"
+        },
+        "XGenerationLab/XiYanSQL-QwenCoder-32B-2412": {
+          "name": "XiYanSQL QwenCoder 32B 2412"
+        },
+        "XGenerationLab/XiYanSQL-QwenCoder-32B-2504": {
+          "name": "XiYanSQL QwenCoder 32B 2504"
+        },
+        "ZhipuAI/GLM-4.7-Flash": {
+          "name": "GLM 4.7 Flash"
+        },
+        "ZhipuAI/GLM-5.2": {
+          "name": "GLM 5.2"
+        }
+      }
+    },
+    "zhipuai": {
+      "models": {
+        "glm-4.5": {
+          "name": "GLM 4.5"
+        },
+        "glm-4.5-air": {
+          "name": "GLM 4.5 Air"
+        },
+        "glm-4.6": {
+          "name": "GLM 4.6"
+        },
+        "glm-4.7": {
+          "name": "GLM 4.7"
+        },
+        "glm-5": {
+          "name": "GLM 5"
+        },
+        "glm-5-turbo": {
+          "name": "GLM 5 Turbo"
+        },
+        "glm-5.1": {
+          "name": "GLM 5.1"
+        },
+        "glm-5.2": {
+          "name": "GLM 5.2"
+        },
+        "glm-5.3": {
+          "name": "GLM 5.3"
+        },
+        "glm-5.3-flash": {
+          "name": "GLM 5.3 Flash"
+        },
+        "glm-5v-turbo": {
+          "name": "GLM 5V Turbo (Vision)"
+        },
+        "glm-4.7-flash": {
+          "name": "GLM 4.7 Flash"
+        },
+        "glm-4.7-flashx": {
+          "name": "GLM 4.7 FlashX"
+        },
+        "glm-4.6v": {
+          "name": "GLM 4.6V (Vision)"
+        },
+        "glm-4.5v": {
+          "name": "GLM 4.5V (Vision)"
+        },
+        "glm-4.5-flash": {
+          "name": "GLM 4.5 Flash"
+        }
+      }
+    }
+  },
+  "model": "opencode-go/glm-5.3-flash"
+}

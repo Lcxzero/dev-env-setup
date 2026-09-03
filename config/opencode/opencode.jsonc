@@ -1,0 +1,7 @@
+{
+  "plugin": ["oh-my-openagent@latest"],
+  "$schema": "https://opencode.ai/config.json",
+  "skills": {
+    "paths": ["/home/lcxzero/repos/skill/skills"]
+  }
+}
